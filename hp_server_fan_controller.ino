@@ -18,14 +18,17 @@ void setup() {
   pinMode(led_pin, OUTPUT);
   pinMode(pwm_in_pin, INPUT);
   pinMode(pwm_out_pin, OUTPUT);
+
   digitalWrite(led_pin, LOW);
   Serial.begin(115200);
   analogWrite(pwm_out_pin, pwm_out_value);
 }
 
+
 void loop() {
   // Set the fan speed high or low depending on whether server PWM signal is
-  // above a threshold
+  // above a threshold.
+
   pwm_in_value = pulseIn(pwm_in_pin, HIGH);
   if (pwm_in_value > 40) {
     if (pwm_out_value != 1000) {
@@ -52,7 +55,8 @@ void loop() {
 
   // Read the fan pulses for a period of time to make sure it goes high and
   // low. If it doesn't change then then fan has stopped moving and we need
-  // to alert the server by setting alert_pin high
+  // to alert the server by setting alert_pin high.
+
   while (true) {
     fan_state = digitalRead(fan_pin);
     if (fan_state == HIGH) {
