@@ -19,3 +19,11 @@ I used the `pulseIn()` method to read the pulse width (in milliseconds) that the
 I don't think this works correctly on my machine (or at least as I expected to). Anyway, I can still use it to signal to the server that there is a fan failure so it can shut down. If I set it low (0V) then all is OK, and if I set it high (5V) then the server's light flashes red instead of being blue, it bleeps, shuts down. This is done with `digitalWrite(alert_pin, LOW)`.
 
 I read pulses from the fan for a fixed period of time using `millis()` and `digitalRead(fan_pin)` and expect to count the fan's signal as being high and low during the period. I confirmed this works by running the fan at a slow speed and sticking a piece of plastic into the rotors.
+
+
+## Files
+
+ * `hp_server_fan_controller.ino` - Arduino sketch
+ * `hp_server_fan_controller.pro` - KiCad project
+ * `hp_server_fan_controller.sch` - KiCad schematic
+ * `schematic.pdf` - Exported PDF version of the schematic
